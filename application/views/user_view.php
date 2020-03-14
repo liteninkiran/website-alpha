@@ -4,8 +4,8 @@
 <html lang="en">
 
     <head>
-    	<meta charset="UTF-8">
-    	<title>User View</title>
+        <meta charset="UTF-8">
+        <title>User View</title>
     </head>
 
     <body>
@@ -23,7 +23,7 @@
 ?>
 
         </h1>
-	
+    
     </body>
 
 </html>

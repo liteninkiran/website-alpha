@@ -10,7 +10,7 @@
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('First Name'); ?>
 
 
@@ -18,12 +18,12 @@
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'first_name',
-	'placeholder' => 'Enter First Name',
-	'value' => set_value('first_name')
+    'class' => 'form-control',
+    'name' => 'first_name',
+    'placeholder' => 'Enter First Name',
+    'value' => set_value('first_name')
 
-	);
+    );
 
 
  ?>
@@ -38,7 +38,7 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('Last Name'); ?>
 
 
@@ -46,12 +46,12 @@ $data = array(
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'last_name',
-	'placeholder' => 'Enter Last Name',
-	'value' => set_value('last_name')
+    'class' => 'form-control',
+    'name' => 'last_name',
+    'placeholder' => 'Enter Last Name',
+    'value' => set_value('last_name')
 
-	);
+    );
 
 
  ?>
@@ -68,7 +68,7 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('Email'); ?>
 
 
@@ -76,12 +76,12 @@ $data = array(
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'email',
-	'placeholder' => 'Enter Your Email',
-	'value' => set_value('email')
+    'class' => 'form-control',
+    'name' => 'email',
+    'placeholder' => 'Enter Your Email',
+    'value' => set_value('email')
 
-	);
+    );
 
 
  ?>
@@ -99,7 +99,7 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('Username'); ?>
 
 
@@ -107,12 +107,12 @@ $data = array(
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'username',
-	'placeholder' => 'Enter Username',
-	'value' => set_value('username')
+    'class' => 'form-control',
+    'name' => 'username',
+    'placeholder' => 'Enter Username',
+    'value' => set_value('username')
 
-	);
+    );
 
 
  ?>
@@ -127,7 +127,7 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('Password'); ?>
 
 
@@ -135,11 +135,11 @@ $data = array(
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'password',
-	'placeholder' => 'Enter Password'
+    'class' => 'form-control',
+    'name' => 'password',
+    'placeholder' => 'Enter Password'
 
-	);
+    );
 
 
  ?>
@@ -154,7 +154,7 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 <?php echo form_label('Comfirm Password'); ?>
 
 
@@ -162,11 +162,11 @@ $data = array(
 
 $data = array(
 
-	'class' => 'form-control',
-	'name' => 'confirm_password',
-	'placeholder' => 'Confirm Password'
+    'class' => 'form-control',
+    'name' => 'confirm_password',
+    'placeholder' => 'Confirm Password'
 
-	);
+    );
 
 
  ?>
@@ -182,17 +182,17 @@ $data = array(
 
 
 <div class="form-group">
-	
+    
 
 <?php
 
 $data = array(
 
-	'class' => 'btn btn-primary',
-	'name' => 'submit',
-	'value' => 'Register'
+    'class' => 'btn btn-primary',
+    'name' => 'submit',
+    'value' => 'Register'
 
-	);
+    );
 
 
  ?>

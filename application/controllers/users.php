@@ -1,21 +1,21 @@
 <?php 
 
-	class Users extends CI_Controller
-	{
-		public function show($userId)
-		{
+    class Users extends CI_Controller
+    {
+        public function show($userId)
+        {
             // Load the user model - No longer required as the model has been added to the autoload file
-			// $this->load->model('user_model');
+            // $this->load->model('user_model');
 
             // Retreive all user records
-			$rs = $this->user_model->getUser($userId);
+            $rs = $this->user_model->getUser($userId);
 
             // Store data to be transferred to the view
             $data['users'] = $rs;
 
             // Load the view
             $this->load->view('user_view', $data);
-		}
+        }
 
         public function insert()
         {
@@ -66,68 +66,68 @@
             $this->user_model->deleteUser(19);
         }
 
-		public function login()
-		{
+        public function login()
+        {
             // Set validation rules
-			$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
-			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+            $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
 
             // Check rules
-			if($this->form_validation->run() == FALSE)
-			{
+            if($this->form_validation->run() == FALSE)
+            {
                 // Store the errors
-				$data = array
-					(
-						'errors' => validation_errors()
-					);
+                $data = array
+                    (
+                        'errors' => validation_errors()
+                    );
 
                 // Set the flashdata
-				$this->session->set_flashdata($data);
+                $this->session->set_flashdata($data);
 
                 // Re-direct back to login screen
-				redirect('home');
-			}
-			else
-			{
+                redirect('home');
+            }
+            else
+            {
                 // Store the username and password
-				$username = $this->input->post('username');
-				$password = $this->input->post('password');
+                $username = $this->input->post('username');
+                $password = $this->input->post('password');
 
                 // Check the username and passwords match
-				$user_id = $this->user_model->checkLogin($username, $password);
+                $user_id = $this->user_model->checkLogin($username, $password);
 
                 // Check we have a valid user id
-				if($user_id)
-				{
+                if($user_id)
+                {
                     // Set the session data variable
-					$user_data = array
-						(
-						'user_id' => $user_id,
-						'username' => $username,
-						'logged_in' => true
-						);
+                    $user_data = array
+                        (
+                        'user_id' => $user_id,
+                        'username' => $username,
+                        'logged_in' => true
+                        );
 
                     // Set session data
-					$this->session->set_userdata($user_data);
-					$this->session->set_flashdata('login_success', 'You are now logged in');
+                    $this->session->set_userdata($user_data);
+                    $this->session->set_flashdata('login_success', 'You are now logged in');
 
                     // Re-direct to login page
-					redirect('home/index');
-				}
-				else
-				{
+                    redirect('home/index');
+                }
+                else
+                {
                     // Passwords don't match, re-direct to login page
-					$this->session->set_flashdata('login_failed', 'Username and password combination do not match or user does not exist');
-					redirect('home/index');
-				}
-			}
-		}
+                    $this->session->set_flashdata('login_failed', 'Username and password combination do not match or user does not exist');
+                    redirect('home/index');
+                }
+            }
+        }
 
-		public function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('home/index');
-		}
+        public function logout()
+        {
+            $this->session->sess_destroy();
+            redirect('home/index');
+        }
 
         public function register()
         {
@@ -155,7 +155,7 @@
                 }
             }
         }
-	}
+    }
 ?>
 
 
