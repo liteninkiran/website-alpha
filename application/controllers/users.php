@@ -111,14 +111,17 @@
                     $this->session->set_userdata($user_data);
                     $this->session->set_flashdata('login_success', 'You are now logged in');
 
+                    $data['main_view'] = "admin_view";
+                    $this->load->view('layouts/main', $data);
+
                     // Re-direct to login page
-                    redirect('home/index');
+                    redirect('home');
                 }
                 else
                 {
                     // Passwords don't match, re-direct to login page
                     $this->session->set_flashdata('login_failed', 'Username and password combination do not match or user does not exist');
-                    redirect('home/index');
+                    redirect('home');
                 }
             }
         }
@@ -126,7 +129,7 @@
         public function logout()
         {
             $this->session->sess_destroy();
-            redirect('home/index');
+            redirect('home');
         }
 
         public function register()

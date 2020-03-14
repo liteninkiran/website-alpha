@@ -7,6 +7,15 @@
             // Show a logout option
             echo '<h2>Logout</h2>';
 
+            // Display messages
+            echo '<p class="bg-success">';
+
+            // Display login message
+            if($this->session->flashdata('login_success')){echo $this->session->flashdata('login_success');}
+
+            // End display messages
+            echo '</p>';
+
             // Show the username for clarity
             echo '<p>You are logged in as ' . $this->session->userdata('username') . '</p>';
 
@@ -36,7 +45,7 @@
             if($this->session->flashdata('login_failed')){echo $this->session->flashdata('login_failed');}
             if($this->session->flashdata('no_access')){echo $this->session->flashdata('no_access');}
 
-            // End display messages
+            // End display login messages
             echo '</p>';
 
             /* ------------------------------- Form Start ----------------------------- */
