@@ -1,11 +1,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `portal`
 --
@@ -60,8 +55,42 @@ CREATE TABLE IF NOT EXISTS `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `create_date`, `create_user`, `change_date`, `change_user`) VALUES
-(18, 'rico', '123', 'Edwin', 'Diaz', 'rico@domain.com', '2015-11-29 13:23:24', 18, '2015-11-29 13:23:24', 18);
--- (18, 'rico', '$2y$12$SGEA7g4H8K4xxBMEWoDLQuQL5m0LVTFHGOd3gHdeh66w/c926Erky', 'Edwin', 'Diaz', 'rico@domain.com', '2015-11-29 13:23:24', 18, '2015-11-29 13:23:24', 18);
+(18, 'kiran.anand', '123', 'Kiran', 'Anand', 'kiran.anand@domain.com', '2015-11-29 13:23:24', 18, '2015-11-29 13:23:24', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `county`
+--
+
+CREATE TABLE IF NOT EXISTS `county`
+(
+  `id` int(11) NOT NULL,
+  `county_name` varchar(50) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_user` int NOT NULL,
+  `change_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `change_user` int NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `town`
+--
+
+CREATE TABLE IF NOT EXISTS `town`
+(
+  `id` int(11) NOT NULL,
+  `town_name` varchar(50) NOT NULL,
+  `county_id` int(11) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_user` int NOT NULL,
+  `change_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `change_user` int NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+
 
 --
 -- Indexes for dumped tables
@@ -91,6 +120,32 @@ ADD UNIQUE (`email`);
 
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Indexes for table `county`
+--
+ALTER TABLE `county`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `county`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+
+ALTER TABLE `county`
+  ADD CONSTRAINT uc_county_name UNIQUE (county_name);
+
+--
+-- Indexes for table `county`
+--
+ALTER TABLE `town`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `town`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+
+ALTER TABLE `town`
+  ADD CONSTRAINT uc_town_name UNIQUE (town_name);
+
+ALTER TABLE `town`
+  ADD CONSTRAINT fk_county FOREIGN KEY (county_id) REFERENCES county(id);
+
+

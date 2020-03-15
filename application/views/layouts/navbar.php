@@ -25,11 +25,8 @@
             <!-- Left hand menu -->
             <ul class="nav navbar-nav">
 
-                <!-- Link (current) -->
-                <li class="active"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-
-                <!-- Link -->
-                <li><a href="#">Link</a></li>
+                <!-- Counties -->
+                <li><a href="<?php echo base_url();?>countys">Counties</a></li>
 
                 <!-- Dropdown -->
                 <li class="dropdown">
