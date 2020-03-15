@@ -42,17 +42,22 @@
         public function update()
         {
             // Define the record we wish to update
-            $id = 19;
+            $id = 18;
 
             // Define the updates
-            $password = "wxyz";
+            $first_name = "Kiran";
+            $last_name = "Anand";
+            $username = 'kiran.anand';
+
             $change_date = date("Y-m-d H:i:s");
             $change_user = 18;
 
             // Store in array
             $data = 
                 [
-                    'password' => $password,
+                    'first_name' => $first_name,
+                    'last_name' => $last_name,
+                    'username' => $username,
                     'change_user' => $change_user,
                     'change_date' => $change_date
                 ];
@@ -94,16 +99,17 @@
                 $password = $this->input->post('password');
 
                 // Check the username and passwords match
-                $user_id = $this->user_model->checkLogin($username, $password);
+                $user = $this->user_model->checkLogin($username, $password);
 
                 // Check we have a valid user id
-                if($user_id)
+                if($user)
                 {
                     // Set the session data variable
                     $user_data = array
                         (
-                        'user_id' => $user_id,
+                        'user_id' => $user->id,
                         'username' => $username,
+                        'full_name' => $user->first_name . ' ' . $user->last_name,
                         'logged_in' => true
                         );
 

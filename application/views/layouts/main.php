@@ -10,10 +10,22 @@
 
     <body>
 
+<?php
+        if($this->session->userdata('logged_in'))
+        {
+            include("navbar.php");
+            $view = 'admin_view';
+        }
+        else
+        {
+            $view = 'users/login_view';
+        }
+?>
         <div class="container">
-            <?php $this->load->view('users/login_view') ?>
+            <?php $this->load->view($view); ?>
         </div>
 
     </body>
 
 </html>
+

@@ -68,7 +68,7 @@
                 if($password == $db_password /*password_verify($password, $db_password)*/ )
                 {
                     // Passwords match - return the ID
-                    return $row->id;
+                    return $row;
                 }
                 else
                 {
