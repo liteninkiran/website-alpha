@@ -8,7 +8,7 @@
     $rs = $this->db->query("SELECT * FROM users As u");
 */
 
-    class user_model extends CI_Model
+    class User_model extends CI_Model
     {
 
         public function getUsers()
@@ -35,15 +35,15 @@
             $this->db->insert('user', $data);
         }
 
-        public function updateUser($user_id, $data)
+        public function updateUser($userId, $data)
         {
-            $this->db->where('id', $user_id);
+            $this->db->where('id', $userId);
             $this->db->update('user', $data);
         }
 
-        public function deleteUser($user_id)
+        public function deleteUser($userId)
         {
-            $this->db->where('id', $user_id);
+            $this->db->where('id', $userId);
             $this->db->delete('user');
         }
 
