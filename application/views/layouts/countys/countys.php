@@ -14,10 +14,6 @@
             {
                 text-align: center;   
             }
-
-          .showcss{display:block;}
-          .hidecss{display:none;}
-
         </style>
 
     </head>
