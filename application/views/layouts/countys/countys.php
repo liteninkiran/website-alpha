@@ -15,6 +15,9 @@
                 text-align: center;   
             }
 
+          .showcss{display:block;}
+          .hidecss{display:none;}
+
         </style>
 
     </head>
@@ -42,7 +45,7 @@
                 <thead>
                     <tr>
                         <th style="width: 10%">ID</th>
-                        <th style="width: 80%">County</th>
+                        <th style="width: 70%">County</th>
                         <th style="width: 10%" id="delete_button">Delete</th>
                     </tr>
                 </thead>
@@ -51,8 +54,11 @@
 <?php
                     foreach($countys as $county)
                     {
+                        $class = "btn btn-danger btn-xs";
+                        $onClick = "DisplayMessage(" . $county->id . ", '" . $county->county_name . "'" . ");";
+
                         // Define attributes for delete button
-                        $data = array('class' => 'btn btn-danger btn-xs', 'name' => 'submit', 'value' => 'Delete', 'id' => $county->id, 'onclick'=>'return DisplayMessages(this);');
+                        $data = array('class' => $class, 'name' => 'submit', 'id' => 'cmdDelete', 'value' => 'Delete', 'onclick' => $onClick);
 
                         echo '<tr>';
                         echo '<td>' . $county->id . '</td>';
@@ -61,6 +67,7 @@
                         echo '</tr>';
                     }
 ?>
+
                 </tbody>
 
             </table>
@@ -69,10 +76,9 @@
 
         <script type="text/javascript">
 
-            function DisplayMessages()
+            function DisplayMessage(id, title)
             {
-                var id = $(this).attr("id");
-                if(confirm("Are you sure you want to delete this record?"))
+                if(confirm('Are you sure you want to delete "' + title + '"?'))
                 {
                     window.location = "<?php echo base_url(); ?>countys/delete_record/" + id;
                 }
@@ -82,24 +88,6 @@
                 }
             }
 
-
-            /*
-            $(document).ready(function()
-            {
-                $('#xxx').click(function()
-                {
-                    var id = $(this).attr("id");
-                    if(confirm("Are you sure you want to delete this record?"))
-                    {
-                        window.location = "<?php echo base_url(); ?>countys/delete_record/" + id;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                });
-            });
-            */
         </script>
 
     </body>
