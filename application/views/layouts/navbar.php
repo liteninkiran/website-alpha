@@ -25,6 +25,12 @@
             <!-- Left hand menu -->
             <ul class="nav navbar-nav">
 
+                <!-- Home Page -->
+                <li><a href="<?php echo base_url();?>home">Home Page</a></li>
+
+                <!-- Towns -->
+                <li><a href="<?php echo base_url();?>towns">Towns</a></li>
+
                 <!-- Counties -->
                 <li><a href="<?php echo base_url();?>countys">Counties</a></li>
 

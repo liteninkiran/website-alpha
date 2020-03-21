@@ -5,10 +5,10 @@
         public function show($userId)
         {
             // Load the user model - No longer required as the model has been added to the autoload file
-            // $this->load->model('user_model');
+            // $this->load->model('User_model');
 
             // Retreive all user records
-            $rs = $this->user_model->getUser($userId);
+            $rs = $this->User_model->getUser($userId);
 
             // Store data to be transferred to the view
             $data['users'] = $rs;
@@ -27,7 +27,7 @@
             $password = "xyz";
             $username = "kiran.anand";
 
-            $this->user_model->createUser
+            $this->User_model->createUser
             ([
                 'change_user' => $change_user,
                 'create_user' => $create_user,
@@ -63,12 +63,12 @@
                 ];
 
             // Perform update
-            $this->user_model->updateUser($id, $data);
+            $this->User_model->updateUser($id, $data);
         }
 
         public function delete()
         {
-            $this->user_model->deleteUser(19);
+            $this->User_model->deleteUser(19);
         }
 
         public function login()
@@ -99,7 +99,7 @@
                 $password = $this->input->post('password');
 
                 // Check the username and passwords match
-                $user = $this->user_model->checkLogin($username, $password);
+                $user = $this->User_model->checkLogin($username, $password);
 
                 // Check we have a valid user id
                 if($user)
@@ -157,7 +157,7 @@
             else
             {
 
-                if($this->user_model->create_user())
+                if($this->User_model->create_user())
                 {
                     $this->session->set_flashdata('user_registered', 'User has been registered');
                     redirect('home/index');
