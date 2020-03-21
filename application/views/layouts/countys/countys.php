@@ -41,7 +41,7 @@
                 <thead>
                     <tr>
                         <th style="width: 10%">ID</th>
-                        <th style="width: 70%">County</th>
+                        <th style="width: 80%">County</th>
                         <th style="width: 10%" id="delete_button">Delete</th>
                     </tr>
                 </thead>
